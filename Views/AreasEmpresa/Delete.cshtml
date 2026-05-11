@@ -1,0 +1,15 @@
+﻿@model AdminCore.Models.AreaEmpresa
+
+<h1>Eliminar área</h1>
+
+<p>¿Seguro que desea eliminar esta área?</p>
+
+<p><strong>@Model.Nombre</strong></p>
+<p>Empresa: @Model.Empresa?.Nombre</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index">Cancelar</a>
+</form>

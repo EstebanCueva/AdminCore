@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Dashboard Admin";
+}
+
+<h1>Panel Administrativo</h1>
+
+<p>Este panel permite administrar la configuración base del sistema de gestión de gastos empresariales.</p>
+
+<hr />
+
+<h3>Resumen</h3>
+
+<p>Total empresas: @ViewBag.TotalEmpresas</p>
+<p>Total áreas: @ViewBag.TotalAreas</p>
+<p>Total proveedores: @ViewBag.TotalProveedores</p>
+<p>Total categorías: @ViewBag.TotalCategorias</p>
+<p>Total subcategorías: @ViewBag.TotalSubCategorias</p>
+<p>Total presupuestos: @ViewBag.TotalPresupuestos</p>
+<p>Total presupuestado: $@ViewBag.TotalPresupuestado</p>
+
+<hr />
+
+<h3>Módulos Admin</h3>
+
+<a href="/Empresas">Empresas</a>
+<br />
+<a href="/AreasEmpresa">Áreas</a>
+<br />
+<a href="/Proveedores">Proveedores</a>
+<br />
+<a href="/CategoriasGasto">Categorías de gasto</a>
+<br />
+<a href="/SubCategoriasGasto">Subcategorías de gasto</a>
+<br />
+<a href="/PresupuestosArea">Presupuestos por área</a>
+<br />

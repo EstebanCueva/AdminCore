@@ -1,0 +1,82 @@
+﻿@model AdminCore.Models.PresupuestoArea
+
+<h1>Editar presupuesto por área</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <label>Empresa</label>
+    <select asp-for="EmpresaId" asp-items="ViewBag.Empresas" class="form-control" id="EmpresaId">
+        <option value="">Seleccione una empresa</option>
+    </select>
+    <span asp-validation-for="EmpresaId" class="text-danger"></span>
+
+    <label>Área</label>
+    <select asp-for="AreaEmpresaId" asp-items="ViewBag.Areas" class="form-control" id="AreaEmpresaId">
+        <option value="">Seleccione un área</option>
+    </select>
+    <span asp-validation-for="AreaEmpresaId" class="text-danger"></span>
+
+    <label>Mes</label>
+    <select asp-for="Mes" class="form-control">
+        <option value="">Seleccione un mes</option>
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+    </select>
+    <span asp-validation-for="Mes" class="text-danger"></span>
+
+    <label>Año</label>
+    <input asp-for="Anio" class="form-control" />
+    <span asp-validation-for="Anio" class="text-danger"></span>
+
+    <label>Monto asignado</label>
+    <input asp-for="MontoAsignado" class="form-control" />
+    <span asp-validation-for="MontoAsignado" class="text-danger"></span>
+
+    <label>Descripción</label>
+    <textarea asp-for="Descripcion" class="form-control"></textarea>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById("EmpresaId").addEventListener("change", function () {
+            const empresaId = this.value;
+            const areaSelect = document.getElementById("AreaEmpresaId");
+
+            areaSelect.innerHTML = '<option value="">Seleccione un área</option>';
+
+            if (!empresaId) return;
+
+            fetch(`/PresupuestosArea/GetAreasPorEmpresa?empresaId=${empresaId}`)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(item => {
+                        const option = document.createElement("option");
+                        option.value = item.id;
+                        option.textContent = item.nombre;
+                        areaSelect.appendChild(option);
+                    });
+                });
+        });
+    </script>
+}

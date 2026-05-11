@@ -1,0 +1,45 @@
+﻿@model AdminCore.Models.Empresa
+
+<h1>Editar empresa</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <label>Nombre</label>
+    <input asp-for="Nombre" class="form-control" />
+    <span asp-validation-for="Nombre" class="text-danger"></span>
+
+    <label>RUC</label>
+    <input asp-for="Ruc" class="form-control" />
+    <span asp-validation-for="Ruc" class="text-danger"></span>
+
+    <label>Correo</label>
+    <input asp-for="Correo" class="form-control" />
+    <span asp-validation-for="Correo" class="text-danger"></span>
+
+    <label>Teléfono</label>
+    <input asp-for="Telefono" class="form-control" />
+
+    <label>Dirección</label>
+    <input asp-for="Direccion" class="form-control" />
+
+    <br />
+
+    <label>
+        <input asp-for="Activo" />
+        Activo
+    </label>
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,18 @@
+﻿@model AdminCore.Models.PresupuestoArea
+
+<h1>Eliminar presupuesto</h1>
+
+<p>¿Seguro que desea eliminar este presupuesto?</p>
+
+<p>Empresa: @Model.Empresa?.Nombre</p>
+<p>Área: @Model.AreaEmpresa?.Nombre</p>
+<p>Mes: @Model.Mes</p>
+<p>Año: @Model.Anio</p>
+<p>Monto: @Model.MontoAsignado</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index">Cancelar</a>
+</form>

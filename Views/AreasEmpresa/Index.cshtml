@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AdminCore.Models.AreaEmpresa>
+
+<h1>Áreas de empresa</h1>
+
+<a asp-action="Create">Crear área</a>
+<br />
+<a href="/Dashboard">Volver al Dashboard</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Área</th>
+            <th>Empresa</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Empresa?.Nombre</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

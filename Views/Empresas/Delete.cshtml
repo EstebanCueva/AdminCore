@@ -1,0 +1,15 @@
+﻿@model AdminCore.Models.Empresa
+
+<h1>Eliminar empresa</h1>
+
+<p>¿Seguro que desea eliminar esta empresa?</p>
+
+<p><strong>@Model.Nombre</strong></p>
+<p>RUC: @Model.Ruc</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index">Cancelar</a>
+</form>
