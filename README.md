@@ -323,13 +323,15 @@ AreaEmpresa 1 --- * PresupuestosArea
 
 ## Deploy
 
-El proyecto será desplegado en Azure utilizando:
+El proyecto será desplegado en Azure utilizando: 
 
 - Azure App Service para hospedar la aplicación.
 - Azure SQL Database para hospedar la base de datos.
 - GitHub para versionamiento del código.
 
 La cadena de conexión de producción debe configurarse en Azure App Service como variable de entorno, evitando dejar credenciales sensibles directamente en el repositorio.
+
+Link del Deploy en Azure: https://admincore-esteban-fsh8g4gmcsf2e9h3.centralus-01.azurewebsites.net 
 
 ---
 
